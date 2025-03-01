@@ -3,15 +3,13 @@ import javax.swing.*;
 
 public class Window extends JFrame {
 
-    //Variables
-    private double attkPrice = 0;
-
     //Pannels
     JPanel contentPanel = new JPanel(new BorderLayout());
     JPanel basePanel = new JPanel();
-    JPanel itemPanel = new JPanel(new GridBagLayout());
-    GridBagConstraints cLabels = new GridBagConstraints();
-    GridBagConstraints cButtons = new GridBagConstraints();
+    JPanel itemPanel = new JPanel(new BorderLayout());
+    JPanel namePanel = new JPanel(new GridLayout(6,1));
+    JPanel buyPanel = new JPanel(new GridLayout(3,1));
+
 
     //Buttons
     JButton attkBuy = new JButton("Buy");
@@ -35,20 +33,21 @@ public class Window extends JFrame {
         //Adds all the need pannels 
         this.setContentPane(contentPanel);
 
-        //adds the two main panels too the layout
+        //Sets up all the panels
         this.contentPanel.add(itemPanel, BorderLayout.WEST);
         this.contentPanel.add(basePanel, BorderLayout.EAST);
+        this.itemPanel.add(namePanel, BorderLayout.WEST);
+        this.itemPanel.add(buyPanel, BorderLayout.EAST);
 
-        //adding buy button and labels
-        this.itemPanel.add(attkLabel, cLabels);
-        cLabels.gridx = 0;
-        cLabels.gridy = 0;
-        cLabels.gridwidth = 2;
-        cLabels.gridheight = 1;
-        this.itemPanel.add(attkBuy, cButtons);
-        cButtons.gridx = 3;
-        cButtons.gridy = 0;
-        cButtons.gridheight = 2;
+        //Adds the labels to the item panel
+        namePanel.add(attkLabel);
+        namePanel.add(attkPriceText);
+
+        //Adds the buy buttons
+        buyPanel.add(attkBuy);
+        buyPanel.add(speeBuy);
+        buyPanel.add(healBuy);
+
         this.setVisible(true);
     }
     

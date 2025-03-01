@@ -6,7 +6,7 @@ public class User {
     private double speed; 
     private double health;
     private double maxHealth;
-    private boolean = alive;
+    private boolean alive;
 
     public void User() {
 
